@@ -1,6 +1,6 @@
 <?php
+
 use App\Http\Controllers\Cliente\ClienteController;
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -20,9 +20,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
+Route::get('/cliente/index', [ClienteController::class, 'index'])->name('cliente.index');
+Route::get('/cliente/create', [ClienteController::class, 'create'])->name('cliente.create');
+Route::post('/cliente/store', [ClienteController::class, 'store'])->name('cliente.store');
 
 
-Route::get('cliente/index',[ClienteController::class,'index']); 
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

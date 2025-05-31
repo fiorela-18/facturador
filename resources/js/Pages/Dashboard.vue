@@ -1,6 +1,11 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head,link } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
+import { ref } from 'vue'
+
+const saludo = ref('hola que tal, te saludo desde el lado del cliente')
+
+console.log(saludo.value);
 
 </script>
 
@@ -22,12 +27,12 @@ import { Head,link } from '@inertiajs/vue3';
                     class="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800"
                 >
                     <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <link href= "route('cliente.index')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <Link 
+                            :href="route('cliente.index')" 
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        >
                             Saludo
-
-                    </link>
-
-                
+                        </Link>
                     </div>
                 </div>
             </div>
